@@ -1,0 +1,20 @@
+ur3_cartesian_twist_controller:
+  type: "velocity_controllers/CartesianTwistController"
+  base_link: "base_link"
+  end_effector_link: "tool0"
+  
+  # Parameters for velocity scaling and limits
+  linear:
+    x:
+      max_velocity: 0.5 # m/s
+    y:
+      max_velocity: 0.5 # m/s
+    z:
+      max_velocity: 0.5 # m/s
+  angular:
+    x:
+      max_velocity: 1.0 # rad/s
+    y:
+      max_velocity: 1.0 # rad/s
+    z:
+      max_velocity: 1.0 # rad/s

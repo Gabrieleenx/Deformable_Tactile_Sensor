@@ -1,0 +1,38 @@
+<launch>
+  <!-- Frames (update with your real transforms!) -->
+  <!-- tool0 -> ft_sensor -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="static_tf_tool0_ft" 
+        args="0.0 0.0 0.028 0.7854 0 0  tool0 ft_sensor"/>
+
+  <!-- tool0 -> tactile_sensor -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="static_tf_tool0_tactile" 
+        args="0.0 0.0 0.061 0 0 0 tool0 tactile_sensor"/>
+
+  <!-- tool0 -> tactile_sensor_probe -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="static_tf_tool0_calibration" 
+        args="0.0 0.0 0.0885 0 0 0 tool0 tactile_calibration"/>      
+
+  <!-- Tactile frame controller node -->
+  <node pkg="sensor_v2" type="tactile_frame_controller.py" name="tactile_frame_controller" output="screen">
+    <!-- Frame parameters -->
+    <param name="base_frame" value="base_link"/>
+    <param name="tool0_frame" value="tool0"/>
+    <param name="ft_frame" value="ft_sensor"/>
+    <param name="tactile_frame" value="tactile_sensor"/>
+
+    <!-- Control gains -->
+    <param name="kp_pos" value="1.5"/>
+    <param name="kp_ori" value="1.5"/>
+
+    <param name="max_lin_vel" value="0.2"/>
+    <param name="max_ang_vel" value="1.5"/>
+
+    <param name="force_gain" value="0.05"/>
+    <param name="torque_gain" value="10"/>
+
+
+    <!-- Safety force/torque limits -->
+    <param name="max_force" value="5.0"/>    <!-- Newtons -->
+    <param name="max_torque" value="0.1"/>    <!-- Newton-meters -->
+  </node>
+</launch>

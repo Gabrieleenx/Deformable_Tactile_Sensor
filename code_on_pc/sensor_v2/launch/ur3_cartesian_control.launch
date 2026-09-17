@@ -1,0 +1,25 @@
+<launch>
+  <!-- 1. Bring up the UR3e driver -->
+  <include file="$(find ur_robot_driver)/launch/ur3e_bringup.launch">
+    <arg name="robot_ip" value="192.168.57.3" />
+  </include>
+  
+  <!-- 2. Load the velocity controller parameters -->
+  <rosparam file="$(find sensor_v2)/config/ur3_joint_velocity_controller.yaml" command="load"/>
+
+  <!-- 3. Spawn the velocity controller in stopped mode -->
+  <node name="custom_controller_loader" pkg="controller_manager" type="spawner"
+        output="screen" args="--stopped ur3_joint_velocity_controller" />
+
+  <!-- 4. Switch from position controller to velocity controller after a delay -->
+  <node name="controller_switcher"
+        pkg="rosservice" type="rosservice"
+        args="call /controller_manager/switch_controller ['ur3_joint_velocity_controller'] ['scaled_pos_joint_traj_controller'] 2"
+        launch-prefix="bash -c 'sleep 5; exec'" />
+
+  <!-- 5. Start your converter node -->
+  <node name="cartesian_velocity_converter" pkg="sensor_v2" type="cartesian_velocity_converter_node" output="screen"/>
+
+  <!-- 6. Launch RViz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ur_description)/launch/ur3_rviz.launch" />
+</launch>

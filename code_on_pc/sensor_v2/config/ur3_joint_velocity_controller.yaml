@@ -1,0 +1,16 @@
+ur3_joint_velocity_controller:
+  type: "velocity_controllers/JointGroupVelocityController"
+  joints:
+    - shoulder_pan_joint
+    - shoulder_lift_joint
+    - elbow_joint
+    - wrist_1_joint
+    - wrist_2_joint
+    - wrist_3_joint
+  gains:
+    shoulder_pan_joint: {p: 5.0, i: 0.0, d: 0.0, i_clamp: 1.0}
+    shoulder_lift_joint: {p: 5.0, i: 0.0, d: 0.0, i_clamp: 1.0}
+    elbow_joint: {p: 5.0, i: 0.0, d: 0.0, i_clamp: 1.0}
+    wrist_1_joint: {p: 5.0, i: 0.0, d: 0.0, i_clamp: 1.0}
+    wrist_2_joint: {p: 5.0, i: 0.0, d: 0.0, i_clamp: 1.0}
+    wrist_3_joint: {p: 5.0, i: 0.0, d: 0.0, i_clamp: 1.0}

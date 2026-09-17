@@ -1,0 +1,5 @@
+geometry_msgs/PoseStamped pose
+bool enable_lead_control
+float32 max_force
+float32 max_torque
+float32 trajectory_time

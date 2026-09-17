@@ -1,0 +1,68 @@
+(footprint "0_55mm_hole"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at -0.5 -1.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "3dad0423-b427-4c59-a901-7af6175e9615")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "0_55mm_hole"
+		(at 0 1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "0589981f-fb85-42aa-9eda-e117ccb9c318")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "8dbd9a69-84c5-43b7-abbe-e8f1a1c8c332")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "eafd9000-dc76-4399-9dd9-c8c1d2178f3c")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd allow_soldermask_bridges)
+	(pad "" np_thru_hole circle
+		(at 0 0)
+		(size 0.55 0.55)
+		(drill 0.55)
+		(layers "F&B.Cu" "*.Mask")
+		(zone_connect 0)
+		(uuid "a09847e2-c75b-4607-96ad-4112553b65d5")
+	)
+	(embedded_fonts no)
+)

@@ -1,0 +1,11 @@
+# Basic joint state publisher (always required for UR driver)
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 250
+
+# Scaled Cartesian velocity controller
+scaled_cartesian_velocity_controller:
+  type: velocity_controllers/CartesianTwistController
+  publish_rate: 250
+  base_frame: base
+  end_effector_link: tool0
